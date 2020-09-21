@@ -22,6 +22,10 @@ class MigrateMakeCommand extends Command
 
     protected function writeMigration($name, $table = null, $create = null)
     {
+        if (! file_exists(database_path() . DIRECTORY_SEPARATOR . 'content-migrations')) {
+            mkdir(database_path() . DIRECTORY_SEPARATOR . 'content-migrations');
+        }
+
         $file = $this->creator->create(
             $name,
             $this->laravel->databasePath() . DIRECTORY_SEPARATOR . 'content-migrations'

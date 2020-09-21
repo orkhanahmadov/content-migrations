@@ -31,7 +31,9 @@ class MigrateCommand extends Command
             ]));
         }
 
-        if (! $this->migrator->hasRunAnyMigrations() && ! $this->option('pretend')) {
+        if (method_exists($this->migrator, 'hasRunAnyMigrations') &&
+            ! $this->migrator->hasRunAnyMigrations() &&
+            ! $this->option('pretend')) {
             $this->loadSchemaState();
         }
     }

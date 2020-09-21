@@ -15,11 +15,12 @@ Package simplifies having content based migrations separate from Laravel's migra
 
 ## Why?
 
-Using migrations to insert/update/delete content comes very handy to automate the process. But using Laravel's migrations have some drawback:
+Using migrations to insert/update/delete content is very handy to automate the content update process.
+But using Laravel's own migrations for this purpose have some drawback:
 
-* Laravel's migrations are not meant for content management, it is meant for database structure changes
-* Managing content with migrations is hard. Database structure changes easily get mixed content changes, when you have more and more migrations, it becomes hard to track which of them are doing database structure changes and which of them manages content
-* Recent introduction of "migration squashing" in Laravel 8 copies last state of database structure but not content. This means if you have content-based migrations you need to migrate them again one-by-one
+* Laravel's migrations are not meant for content management, it is meant for database structure changes only.
+* After some time it gets hard to manage and find content-based migrations between many migration files.
+* Recent introduction of "migration squashing" in Laravel 8 copies last state of database structure but not content. This means if you have content-based migrations you need to find a way migrate them again.
 
 This package aims to solve above problem by having content-based migrations separate from usual Laravel migrations.
 
@@ -38,9 +39,23 @@ composer require orkhanahmadov/content-migrations
 
 ## Usage
 
-``` php
+To create content-based migration run `make:content-migration` artisan command and pass migration name:
 
+``` shell script
+php artisan make:content-migration add_new_post
 ```
+
+This will command will generate timestamp-based content migration inside `content-migrations` folder inside `database` folder of your application.
+
+Generated migration will have single `up()` method, you can use this method to insert/update/delete content in your database.
+
+To migrate your content-based migrations, run:
+
+``` shell script
+php artisan content-migrate
+```
+
+This will behave the same way as Laravel's own `php artisan migrate` command, but this command will track processed migrations in `content_migrations` table, separate from Laravel's `migrations` table. 
 
 ### Testing
 

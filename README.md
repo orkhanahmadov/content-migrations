@@ -6,10 +6,10 @@
 [![License](https://img.shields.io/github/license/orkhanahmadov/content-migrations.svg)](https://github.com/orkhanahmadov/content-migrations/blob/master/LICENSE.md)
 
 [![Build Status](https://img.shields.io/travis/orkhanahmadov/content-migrations.svg)](https://travis-ci.org/orkhanahmadov/content-migrations)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/3d5f8ef41004f128df8a/test_coverage)](https://codeclimate.com/github/orkhanahmadov/content-migrations/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/3d5f8ef41004f128df8a/maintainability)](https://codeclimate.com/github/orkhanahmadov/content-migrations/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/5153c5e9c6ba6f6dff00/test_coverage)](https://codeclimate.com/github/orkhanahmadov/content-migrations/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5153c5e9c6ba6f6dff00/maintainability)](https://codeclimate.com/github/orkhanahmadov/content-migrations/maintainability)
 [![Quality Score](https://img.shields.io/scrutinizer/g/orkhanahmadov/content-migrations.svg)](https://scrutinizer-ci.com/g/orkhanahmadov/content-migrations)
-[![StyleCI](https://github.styleci.io/repos/197324305/shield?branch=master)](https://github.styleci.io/repos/197324305)
+[![StyleCI](https://github.styleci.io/repos/297263051/shield?branch=master)](https://github.styleci.io/repos/297263051?branch=master)
 
 Package simplifies having content based migrations separate from Laravel's migrations.
 

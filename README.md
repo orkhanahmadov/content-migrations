@@ -26,8 +26,8 @@ This package aims to solve above problem by having content-based migrations sepa
 
 ## Requirements
 
-* PHP 7.2 or above
-* Laravel 6 or above 
+* PHP **7.2** or above
+* Laravel **6** or above 
 
 ## Installation
 

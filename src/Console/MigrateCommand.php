@@ -14,11 +14,18 @@ class MigrateCommand extends Command
 
     public function handle()
     {
-        $this->migrator->usingConnection($this->option('database'), function () {
+        // Needed for Laravel 6 support. Laravel 7 and 8 has 'usingConnection' method on Migrator
+        if (method_exists($this->migrator, 'usingConnection')) {
+            $this->migrator->usingConnection($this->option('database'), function () {
+                $this->prepareDatabase();
+
+                $this->migrator->setOutput($this->output)->run($this->getMigrationPaths());
+            });
+        } else {
             $this->prepareDatabase();
 
             $this->migrator->setOutput($this->output)->run($this->getMigrationPaths());
-        });
+        }
 
         return 0;
     }

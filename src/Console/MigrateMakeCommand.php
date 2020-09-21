@@ -22,6 +22,7 @@ class MigrateMakeCommand extends Command
 
     protected function writeMigration($name, $table = null, $create = null)
     {
+        // Needed for Laravel 6 and 7 support. Laravel 8 handles creating folder automatically
         if (! file_exists(database_path() . DIRECTORY_SEPARATOR . 'content-migrations')) {
             mkdir(database_path() . DIRECTORY_SEPARATOR . 'content-migrations');
         }

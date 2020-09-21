@@ -6,29 +6,13 @@ use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Database\Migrations\DatabaseMigrationRepository;
 use Illuminate\Database\Migrations\MigrationCreator;
 use Illuminate\Database\Migrations\Migrator;
+use Illuminate\Support\ServiceProvider;
 use Orkhanahmadov\ContentMigrations\Console\InstallCommand;
 use Orkhanahmadov\ContentMigrations\Console\MigrateCommand;
 use Orkhanahmadov\ContentMigrations\Console\MigrateMakeCommand;
 
-class ServiceProvider extends \Illuminate\Support\ServiceProvider
+class ContentMigrationsServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap the application services.
-     */
-    public function boot()
-    {
-        if ($this->app->runningInConsole()) {
-             $this->commands([
-                 InstallCommand::class,
-                 MigrateCommand::class,
-                 MigrateMakeCommand::class,
-             ]);
-        }
-    }
-
-    /**
-     * Register the application services.
-     */
     public function register()
     {
         $this->app->singleton(InstallCommand::class, function ($app) {
@@ -56,5 +40,16 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
                 $app['composer']
             );
         });
+    }
+
+    public function boot()
+    {
+        if ($this->app->runningInConsole()) {
+             $this->commands([
+                 InstallCommand::class,
+                 MigrateCommand::class,
+                 MigrateMakeCommand::class,
+             ]);
+        }
     }
 }

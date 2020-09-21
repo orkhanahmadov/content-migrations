@@ -1,0 +1,16 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+
+class {{ class }} extends Migration
+{
+    /**
+     * Run content migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        // insert, update or delete content
+    }
+}

@@ -45,7 +45,7 @@ class ContentMigrationsServiceProvider extends ServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-             $this->commands([
+            $this->commands([
                  InstallCommand::class,
                  MigrateCommand::class,
                  MigrateMakeCommand::class,

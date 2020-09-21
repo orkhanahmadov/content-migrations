@@ -40,10 +40,8 @@ before_install:
     - composer global require hirak/prestissimo --update-no-dev
 
 install:
-#    - composer require "illuminate/container:${LARAVEL_VERSION}" --no-update --no-interaction --prefer-dist
-#    - composer require "illuminate/console:${LARAVEL_VERSION}" --no-update --no-interaction --prefer-dist
-#    - composer require "illuminate/contracts:${LARAVEL_VERSION}" --no-update --no-interaction --prefer-dist
-#    - composer require "illuminate/database:${LARAVEL_VERSION}" --no-update --no-interaction --prefer-dist
+    - composer require "illuminate/contracts:${LARAVEL_VERSION}" --no-update --no-interaction --prefer-dist
+    - composer require "illuminate/database:${LARAVEL_VERSION}" --no-update --no-interaction --prefer-dist
     - composer require "illuminate/support:${LARAVEL_VERSION}" --no-update --no-interaction --prefer-dist
     - composer require "orchestra/testbench:${TESTBENCH_VERSION}" --no-update --no-interaction --prefer-dist
     - composer require "phpunit/phpunit:${PHPUNIT_VERSION}" --no-update --no-interaction --prefer-dist

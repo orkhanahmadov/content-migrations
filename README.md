@@ -15,7 +15,8 @@ Package simplifies having content-based migrations separate from Laravel's migra
 
 ## Why?
 
-Sometimes using migrations to manage content in database tables comes very handy to automate the content update process on all environments. Like adding new translations or product.
+Sometimes using migrations to manage content in database tables comes very handy to automate the content update process on all environments. Like adding new translations or updating products.
+
 But using Laravel's own migrations for this purpose have some drawback:
 
 * Laravel's migrations are not meant for content management, it is meant for database structure changes only.
@@ -42,7 +43,7 @@ composer require orkhanahmadov/content-migrations
 To create content-based migration run `make:content-migration` artisan command and pass migration name:
 
 ``` shell script
-php artisan make:content-migration add_new_post
+php artisan make:content-migration add_new_translations
 ```
 
 This will command will generate timestamp-based content migration inside `database/content-migrations` folder of your application.

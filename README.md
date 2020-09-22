@@ -11,7 +11,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/orkhanahmadov/content-migrations.svg)](https://scrutinizer-ci.com/g/orkhanahmadov/content-migrations)
 [![StyleCI](https://github.styleci.io/repos/297263051/shield?branch=master)](https://github.styleci.io/repos/297263051?branch=master)
 
-Package simplifies having content based migrations separate from Laravel's migrations.
+Package simplifies having content-based migrations separate from Laravel's migrations.
 
 ## Why?
 

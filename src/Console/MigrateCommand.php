@@ -43,11 +43,14 @@ class MigrateCommand extends Command
             ]));
         }
 
+        // Needed for Laravel 6 and 7 support. Laravel 8 has "hasRunAnyMigrations" method on Migrator
+        // @codeCoverageIgnoreStart
         if (method_exists($this->migrator, 'hasRunAnyMigrations') &&
             ! $this->migrator->hasRunAnyMigrations() &&
             ! $this->option('pretend')) {
             $this->loadSchemaState();
         }
+        // @codeCoverageIgnoreEnd
     }
 
     protected function getMigrationPath()

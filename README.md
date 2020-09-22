@@ -15,7 +15,7 @@ Package simplifies having content based migrations separate from Laravel's migra
 
 ## Why?
 
-Sometimes using migrations to manage content in database tables comes very handy to automate the content update process on all environments.
+Sometimes using migrations to manage content in database tables comes very handy to automate the content update process on all environments. Like adding new translations or product.
 But using Laravel's own migrations for this purpose have some drawback:
 
 * Laravel's migrations are not meant for content management, it is meant for database structure changes only.

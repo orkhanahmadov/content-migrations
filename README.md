@@ -20,7 +20,7 @@ But using Laravel's own migrations for this purpose have some drawback:
 
 * Laravel's migrations are not meant for content management, it is meant for database structure changes only.
 * After some time it gets hard to manage and find content-based migrations between many migration files.
-* Recent introduction of "migration squashing" in Laravel 8 copies last state of database structure but not content. This means if you have content-based migrations you need to find a way migrate them again.
+* Recent introduction of "migration squashing" in Laravel 8 copies last state of database structure but not content. This means if you have content-based migrations you need to find a way to migrate them again.
 
 This package aims to solve above problem by having content-based migrations separate from usual Laravel migrations.
 

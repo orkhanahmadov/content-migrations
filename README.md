@@ -23,6 +23,11 @@ But using Laravel's own migrations for this purpose have some drawback:
 * After some time it gets hard to manage and find content-based migrations among many migration files.
 * Recent introduction of "migration squashing" in Laravel 8 copies last state of database structure only. This means if you have content-based migrations you need to find a way to migrate them again if you have an empty database.
 
+Laravel seeders are ideal for managing content in your database, but they also have their drawbacks:
+
+* They are not as automatic as migrations, you need to run and track each of them individually
+* If you have an empty datatabase it becomes hard, almost impossible to know the order of seeders to run
+
 This package aims to solve these problems by having dedicated content-based migrations separate from usual Laravel migrations.
 
 ## Requirements

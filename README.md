@@ -11,16 +11,22 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/orkhanahmadov/content-migrations.svg)](https://scrutinizer-ci.com/g/orkhanahmadov/content-migrations)
 [![StyleCI](https://github.styleci.io/repos/297263051/shield?branch=master)](https://github.styleci.io/repos/297263051?branch=master)
 
-Package simplifies having content based migrations separate from Laravel's migrations.
+Package simplifies having content-based migrations separate from Laravel's migrations.
 
 ## Why?
 
-Sometimes using migrations to manage content in database tables comes very handy to automate the content update process on all environments. Like adding new translations or product.
+Sometimes using migrations to manage content in database tables comes very handy to automate the content update process on all environments. Like adding new translations or updating products.
+
 But using Laravel's own migrations for this purpose have some drawback:
 
 * Laravel's migrations are not meant for content management, it is meant for database structure changes only.
 * After some time it gets hard to manage and find content-based migrations among many migration files.
 * Recent introduction of "migration squashing" in Laravel 8 copies last state of database structure only. This means if you have content-based migrations you need to find a way to migrate them again if you have an empty database.
+
+Laravel seeders are ideal for managing content in your database, but they also have their drawbacks:
+
+* They are not as automatic as migrations, you need to run and track each of them individually
+* If you have an empty datatabase it becomes hard, almost impossible to know the order of seeders to run
 
 This package aims to solve these problems by having dedicated content-based migrations separate from usual Laravel migrations.
 
@@ -42,7 +48,7 @@ composer require orkhanahmadov/content-migrations
 To create content-based migration run `make:content-migration` artisan command and pass migration name:
 
 ``` shell script
-php artisan make:content-migration add_new_post
+php artisan make:content-migration add_new_translations
 ```
 
 This will command will generate timestamp-based content migration inside `database/content-migrations` folder of your application.

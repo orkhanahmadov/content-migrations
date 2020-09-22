@@ -6,51 +6,24 @@ use Illuminate\Database\Console\Migrations\MigrateCommand as Command;
 
 class MigrateCommand extends Command
 {
-    protected $signature = 'content-migrate {--database= : The database connection to use}
-                {--schema-path= : The path to a schema dump file}
-                {--pretend : Dump the SQL queries that would be run}';
+    protected $signature = 'content-migrate';
 
     protected $description = 'Run the content migrations';
 
     public function handle()
     {
-        // Needed for Laravel 6 support. Laravel 7 and 8 has 'usingConnection' method on Migrator
-        if (method_exists($this->migrator, 'usingConnection')) {
-            $this->migrator->usingConnection($this->option('database'), function () {
-                $this->prepareAndRun();
-            });
-        } else {
-            // @codeCoverageIgnoreStart
-            $this->prepareAndRun();
-            // @codeCoverageIgnoreEnd
-        }
-
-        return 0;
-    }
-
-    protected function prepareAndRun(): void
-    {
         $this->prepareDatabase();
 
         $this->migrator->setOutput($this->output)->run($this->getMigrationPaths());
+
+        return 0;
     }
 
     protected function prepareDatabase()
     {
         if (! $this->migrator->repositoryExists()) {
-            $this->call('content-migrate:install', array_filter([
-                '--database' => $this->option('database'),
-            ]));
+            $this->call('content-migrate:install');
         }
-
-        // Needed for Laravel 6 and 7 support. Laravel 8 has "hasRunAnyMigrations" method on Migrator
-        // @codeCoverageIgnoreStart
-        if (method_exists($this->migrator, 'hasRunAnyMigrations') &&
-            ! $this->migrator->hasRunAnyMigrations() &&
-            ! $this->option('pretend')) {
-            $this->loadSchemaState();
-        }
-        // @codeCoverageIgnoreEnd
     }
 
     protected function getMigrationPath()

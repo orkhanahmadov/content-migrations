@@ -46,11 +46,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ServiceProvider"
-            ],
-            "aliases": {
-                "ContentMigrations": "Orkhanahmadov\\ContentMigrations\\ContentMigrationsFacade"
-            }
+                "Orkhanahmadov\\ContentMigrations\\ContentMigrationsServiceProvider"
+            ]
         }
     }
 }

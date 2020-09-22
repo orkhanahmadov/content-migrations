@@ -3,6 +3,7 @@
 namespace Orkhanahmadov\ContentMigrations\Console;
 
 use Illuminate\Database\Console\Migrations\MigrateMakeCommand as Command;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 class MigrateMakeCommand extends Command
@@ -34,6 +35,8 @@ class MigrateMakeCommand extends Command
             $this->laravel->databasePath() . DIRECTORY_SEPARATOR . 'content-migrations'
         );
 
-        $this->line("<info>Created Content Migration:</info> {$file}");
+        $fileName = Collection::make(explode(DIRECTORY_SEPARATOR, $file))->last();
+
+        $this->line("<info>Created Content Migration:</info> {$fileName}");
     }
 }

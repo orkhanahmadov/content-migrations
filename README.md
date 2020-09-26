@@ -21,7 +21,7 @@ But using Laravel's own migrations for this purpose have some drawback:
 
 * Laravel's migrations are not meant for content management, it is meant for database structure changes only.
 * After some time it gets hard to manage and find content-based migrations among many migration files.
-* Recent introduction of "migration squashing" in Laravel 8 copies last state of database structure only. This means if you have content-based migrations you need to find a way to migrate them again if you have an empty database.
+* Recent introduction of "migration squashing" in Laravel 8 copies only last state of database structure. This means if you have content-based migrations you need to find a way to migrate them again if you have an empty database.
 
 Laravel seeders are ideal for managing content in your database, but they also have their drawbacks:
 

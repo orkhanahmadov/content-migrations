@@ -35,7 +35,7 @@ class MigrateMakeCommand extends Command
             $this->laravel->databasePath() . DIRECTORY_SEPARATOR . 'content-migrations'
         );
 
-        $fileName = Collection::make(explode(DIRECTORY_SEPARATOR, $file))->last();
+        $fileName = basename($file);
 
         $this->line("<info>Created Content Migration:</info> {$fileName}");
     }

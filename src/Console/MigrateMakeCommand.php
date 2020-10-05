@@ -26,7 +26,7 @@ class MigrateMakeCommand extends Command
         // Needed for Laravel 6 and 7 support. Laravel 8 handles creating folder automatically
         // @codeCoverageIgnoreStart
         if (! file_exists(database_path('content-migrations')) {
-            mkdir(database_path('content-migrations'), 0755);
+            mkdir(database_path('content-migrations'), 0755));
         }
         // @codeCoverageIgnoreEnd
 
